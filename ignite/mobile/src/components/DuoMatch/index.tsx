@@ -42,7 +42,7 @@ export function DuoMatch({discord, onClose, ...rest}: Props) {
                     size={20}
                     color={THEME.COLORS.CAPTION_500} 
                 />
-
+            </TouchableOpacity>
                 <CheckCircle 
                     size={64}
                     color={THEME.COLORS.SUCCESS}
@@ -58,7 +58,6 @@ export function DuoMatch({discord, onClose, ...rest}: Props) {
                 </Text>
                 <TouchableOpacity
                     style={styles.discordButton}
-                    
                     onPress={handleCopyDiscordToClipboard}  
                     disabled={isCopping}
                     >
@@ -66,7 +65,6 @@ export function DuoMatch({discord, onClose, ...rest}: Props) {
                         {isCopping? <ActivityIndicator color={THEME.COLORS.PRIMARY}/> : discord}
                     </Text>
                 </TouchableOpacity>
-            </TouchableOpacity>
         </View>
     </View>
     </Modal>
