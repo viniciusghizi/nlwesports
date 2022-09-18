@@ -21,7 +21,7 @@ export function Home() {
   }
 
   useEffect(() => {
-    fetch('http://192.168.1.11:63220/games')
+    fetch('http://192.168.1.11:3333/games')
       .then(response => response.json())
       .then(data => setGames(data))
   }, []);

@@ -20,6 +20,8 @@ export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
   const [discordDuoSelected, setDiscordDuoSelected] = useState('');
 
+  console.log(discordDuoSelected)
+  console.log(duos)
   const navigation = useNavigation();
   const router = useRoute();
   const game = router.params as GameParams;
@@ -29,13 +31,13 @@ export function Game() {
   }
 
   async function getDiscordUser(adsId:string){
-    await fetch(`http://192.168.1.11:63220/ads/${adsId}/discords`)
+    await fetch(`http://192.168.1.11:3333/ads/${adsId}/discords`)
     .then(response => response.json())
     .then(data => setDiscordDuoSelected(data.discord))
   }
 
   useEffect(() => {
-    fetch(`http://192.168.1.11:63220/games/${game.id}/ads`)
+    fetch(`http://192.168.1.11:3333/games/${game.id}/ads`)
       .then(response => response.json())
       .then(data => setDuos(data))
   }, []);

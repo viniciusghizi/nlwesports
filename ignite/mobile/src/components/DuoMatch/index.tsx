@@ -4,7 +4,6 @@ import { View, Modal, ModalProps, Text, TouchableOpacity, Alert, ActivityIndicat
 import { MaterialIcons } from '@expo/vector-icons';
 import {CheckCircle} from 'phosphor-react-native';
 import * as Clipboard from 'expo-clipboard';
-
 import { styles } from './styles';
 import { THEME } from '../../theme';
 import { Headling } from '../Headling';
@@ -24,7 +23,7 @@ export function DuoMatch({discord, onClose, ...rest}: Props) {
         setIsCopping(true);
         await Clipboard.setStringAsync(discord);
 
-        Alert.alert('Discord Copiado!', 'Usuário ${discord} copiado para a área de transferência, entre em contato e BORA DE PLAYY')
+        Alert.alert('Discord Copiado!', `Usuário ${discord} copiado para a área de transferência, BORA DE PLAYYY!`)
         setIsCopping(false);
     }
   return (
@@ -32,6 +31,7 @@ export function DuoMatch({discord, onClose, ...rest}: Props) {
         animationType='fade'
         transparent
         statusBarTranslucent
+        {...rest}
         >
     <View style={styles.container}>
         <View style={styles.content}>
@@ -58,7 +58,8 @@ export function DuoMatch({discord, onClose, ...rest}: Props) {
                 </Text>
                 <TouchableOpacity
                     style={styles.discordButton}
-                    onPress={handleCopyDiscordToClipboard}
+                    
+                    onPress={handleCopyDiscordToClipboard}  
                     disabled={isCopping}
                     >
                     <Text style={styles.discord}>
@@ -66,7 +67,6 @@ export function DuoMatch({discord, onClose, ...rest}: Props) {
                     </Text>
                 </TouchableOpacity>
             </TouchableOpacity>
-            
         </View>
     </View>
     </Modal>
