@@ -4,6 +4,31 @@
     box-sizing: border-box;
 }
 
+header div{
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    animation: fromTop .7s .4s backwards;
+}
+
+header div:hover{
+    transform: scale(1.2);
+}
+
+header{
+    margin-top: 32px;
+    left: 50%;
+    align-items: center;
+    height: calc(120px + 32px);
+}
+header img{
+    width: 100%;
+    border-radius:50%;
+}
+
 section ul{
     margin-top: 24px;
     flex-wrap: wrap;
@@ -11,17 +36,29 @@ section ul{
     list-style: none;
     gap:16px;
 }
+.games-list img, .channel-list img, header div, .social-list img{
+    transition: transform .4s;
+}
 .games-list img{
     border-radius: 8px;
     width: 90px;
 }
+
+.games-list img:hover, .channel-list img:hover, .social-list img:hover{
+    transform: scale(1.4);
+}
+
 .channel-list img{
+    border: 1px solid #443E54;
     border-radius: 50%;
     width: 70px;
 }
+.social-list img{
+    width: 32px;
+}
 
 body{
-    background-image: url('../ignite/web/public/background-galaxy.png');
+    background-image: url(./assets/background-galaxy.png);
     background-position: top center;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -34,13 +71,29 @@ body *{
 }
 
 main{
-    max-width: 580px;
+    max-width:580px;
     width: 90%;
-    margin:auto;
+    margin: 32px auto;
     display: grid;
     gap:24px;
-    margin-top: 32px;
 }
+
+main section{
+    animation: fromBottom .7s .4s backwards;
+}
+
+main section:nth-child(1){
+    animation-delay: .0s;
+}
+
+main section:nth-child(2){
+    animation-delay: .10s;
+}
+
+main section:nth-child(3){
+    animation-delay: .20s;
+}
+
 
 section {
     color:white;
@@ -61,4 +114,27 @@ section h2 {
 section p {
     color:#A1A1AA;
     letter-spacing:-0.18px;
+}
+
+
+@keyframes fromTop{
+    from{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromBottom{
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
